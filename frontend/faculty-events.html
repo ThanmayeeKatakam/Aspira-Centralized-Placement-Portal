@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aspira – Faculty | Add Events</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<!-- CSS Files -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+<link rel="stylesheet" href="assets/css/scrollCue.css">
+<link rel="stylesheet" href="assets/css/remixicon.css">
+<link rel="stylesheet" href="assets/css/flaticon.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+<style>
+body, html { overflow-x: hidden; }
+
+/* Event form card */
+.event-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    border: 2px solid transparent;
+    transition: .3s;
+}
+
+.event-card:hover,
+.event-card:focus-within {
+    border-color: #e53935;
+    box-shadow: 0 0 0 3px rgba(229,57,53,.15),
+                0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Inputs */
+.event-card .form-control {
+    height: 50px;
+}
+
+.event-card textarea.form-control {
+    height: auto;
+}
+</style>
+</head>
+
+<body>
+
+ <div class="top-header-area style-2" style="padding: 12px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <h3 class="mb-0" style="color: #fff; font-weight: 700; letter-spacing: 1px; line-height: 1.4; font-size: 26px;">
+                        <span style="font-family: 'Great Vibes', cursive; font-size: 36px; font-weight: 600; margin-right: 6px;">
+                            Aspira
+                        </span>
+                        – Central Placement and Information Center
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-2" id="navbar">
+        <div class="container">
+            <img src="assets/img/logo_necn.jpg" alt="Logo" height="70" width="160">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="faculty-dashboard.html" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="faculty-events.html" class="nav-link active">Add Events</a>
+                </li>
+                <li class="nav-item">
+                    <a href="faculty-applications.html" class="nav-link">Applications</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a href="faculty-materials.html" class="nav-link">Materials</a>
+                </li>
+                <li class="nav-item">
+                    <a href="logout.html" class="nav-link text-danger">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ================= PAGE OVERVIEW ================= -->
+<div class="overview-area pt-100 pb-75">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>Add Placement / Training Event</h2>
+            <p>Create placement drives, workshops, seminars & guidance sessions</p>
+        </div>
+    </div>
+</div>
+
+<!-- ================= EVENT FORM SECTION ================= -->
+<div class="application-area pt-100 pb-75">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <div class="event-card">
+
+                    <form class="row g-4">
+
+                        <div class="col-md-6">
+                            <label class="form-label">Event Title</label>
+                            <input type="text" class="form-control" placeholder="e.g., Infosys Placement Drive">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Event Type</label>
+                            <select class="form-control">
+                                <option>Select Type</option>
+                                <option>Placement Drive</option>
+                                <option>Workshop</option>
+                                <option>Seminar</option>
+                                <option>Mock Interview</option>
+                                <option>Career Guidance</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Event Date</label>
+                            <input type="date" class="form-control">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Venue / Mode</label>
+                            <input type="text" class="form-control" placeholder="Online / Seminar Hall / Lab">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Eligible Branches</label>
+                            <input type="text" class="form-control" placeholder="CSE, IT, ECE">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Eligible Year</label>
+                            <select class="form-control">
+                                <option>Select Year</option>
+                                <option>2nd Year</option>
+                                <option>3rd Year</option>
+                                <option>Final Year</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label">Event Description</label>
+                            <textarea class="form-control" rows="4"
+                                placeholder="Provide event details, eligibility, selection rounds, etc."></textarea>
+                        </div>
+
+                        <div class="col-12 text-center mt-3">
+                            <button type="submit" class="default-btn border-0">
+                                Add Event <i class="flaticon-right-arrow"></i>
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<div class="footer-area pt-100 pb-75">
+    <div class="container">
+        <div class="row align-items-start">
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="single-footer-widget about">
+                    <h3>About Aspira</h3>
+                    <p>Aspira is the Placement & Career Cell of Narayana Engineering College, Nellore.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="single-footer-widget quick">
+                    <h3>Quick Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="placement-overview.html">Placements</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="single-footer-widget contact">
+                    <h3>Contact</h3>
+                    <p>aspira@necn.ac.in</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- JS -->
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/scrollCue.min.js"></script>
+<script src="assets/js/custom.js"></script>
+
+</body>
+</html>

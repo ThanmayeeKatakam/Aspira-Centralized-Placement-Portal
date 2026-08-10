@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aspira - Faculty Detail</title>
+
+<!-- CSS Files -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/remixicon.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+    .header-gradient {
+        background: linear-gradient(90deg, #0d47a1, #1976d2);
+        color: #fff;
+        padding: 15px 0;
+        font-family: 'Great Vibes', cursive;
+        font-size: 36px;
+        font-weight: 600;
+        text-align: center;
+    }
+    .section-title { font-weight: 600; margin-bottom: 20px; }
+    .card { cursor: pointer; }
+    .chart-container { width: 100%; height: 300px; margin-bottom: 30px; }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header -->
+<div class="header-gradient">Aspira – Central Placement & Info Center</div>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-2">
+<div class="container">
+    <a class="navbar-brand" href="admin-dashboard.html">Admin Dashboard</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a href="admin-dashboard.html" class="nav-link">Dashboard</a></li>
+            <li class="nav-item"><a href="admin-student.html" class="nav-link">Students</a></li>
+            <li class="nav-item"><a href="admin-faculty.html" class="nav-link active">Faculty</a></li>
+            <li class="nav-item"><a href="admin-opportunities.html" class="nav-link">Opportunities</a></li>
+        </ul>
+    </div>
+</div>
+</nav>
+
+<!-- Faculty Info -->
+<div class="container mt-4">
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card p-3 mb-4">
+            <h4 id="facultyName">Faculty Name</h4>
+            <p>Email: <span id="facultyEmail"></span></p>
+            <p>Department: <span id="facultyDept"></span></p>
+        </div>
+    </div>
+
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="card p-3" onclick="openSection('opportunities')">
+                    <h5>Opportunities Posted</h5>
+                    <p id="opportunitiesCount">0</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card p-3" onclick="openSection('blogs')">
+                    <h5>Blogs / Resources Shared</h5>
+                    <p id="blogsCount">0</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card p-3" onclick="openSection('studentsMentored')">
+                    <h5>Students Mentored</h5>
+                    <p id="studentsMentoredCount">0</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card p-3" onclick="openSection('placementParticipation')">
+                    <h5>Placement Drive Participation</h5>
+                    <p id="placementParticipationCount">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="activenessChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- Sections -->
+<div id="detailsSection" class="mt-4">
+    <h4 class="section-title" id="detailsTitle"></h4>
+    <div id="detailsContent"></div>
+</div>
+
+<!-- Action Buttons -->
+<div class="mt-3 d-flex gap-2">
+    <button class="btn btn-danger" onclick="removeFaculty()">Remove Faculty</button>
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addOpportunityModal">Post Opportunity</button>
+</div>
+
+<!-- Modal to add opportunity -->
+<div class="modal fade" id="addOpportunityModal" tabindex="-1" aria-labelledby="addOpportunityLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content p-3">
+  <h5 id="addOpportunityLabel">Add Opportunity</h5>
+  <input type="text" id="oppTitle" class="form-control mb-2" placeholder="Title">
+  <select id="oppType" class="form-select mb-2">
+    <option value="internship">Internship</option>
+    <option value="hackathon">Hackathon</option>
+    <option value="competition">Competition</option>
+  </select>
+  <textarea id="oppDesc" class="form-control mb-2" placeholder="Description"></textarea>
+  <button class="btn btn-primary" onclick="addOpportunity()">Post</button>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- JS -->
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const facultyEmail = urlParams.get('email');
+
+async function fetchFacultyData() {
+    try {
+        const res = await fetch(`/api/admin/faculty-email/${facultyEmail}`);
+        const data = await res.json();
+        if(!data.success){ alert(data.message); return; }
+        const f = data.faculty;
+
+        // Populate
+        document.getElementById('facultyName').innerText = f.name;
+        document.getElementById('facultyEmail').innerText = f.email;
+        document.getElementById('facultyDept').innerText = f.department;
+
+        document.getElementById('opportunitiesCount').innerText = f.opportunities.length;
+        document.getElementById('blogsCount').innerText = f.blogs.length;
+        document.getElementById('studentsMentoredCount').innerText = f.mentorships.length;
+        document.getElementById('placementParticipationCount').innerText = f.placements.length;
+
+        const activeness = Array(7).fill(Math.round((f.opportunities.length + f.blogs.length + f.mentorships.length)/3));
+        const ctx = document.getElementById('activenessChart').getContext('2d');
+        new Chart(ctx, {
+            type:'line',
+            data:{
+                labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+                datasets:[{
+                    label:'Daily Activity',
+                    data:activeness,
+                    backgroundColor:'rgba(25, 118, 210, 0.2)',
+                    borderColor:'rgba(25, 118, 210, 1)',
+                    borderWidth:2,
+                    fill:true,
+                    tension:0.3
+                }]
+            },
+            options:{ responsive:true, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}} }
+        });
+
+        window.facultyData = f;
+    } catch(err){
+        console.error(err);
+        alert('Failed to fetch faculty data');
+    }
+}
+
+function openSection(section){
+    let title=''; let content='';
+    const f = window.facultyData;
+    if(!f) return;
+
+    if(section==='opportunities'){
+        title='Opportunities Posted';
+        content = f.opportunities.map(o => `<p>${o.title} (${o.type})</p>`).join('');
+    } else if(section==='blogs'){
+        title='Blogs / Resources Shared';
+        content = f.blogs.map(b => `<p>${b.title}</p>`).join('');
+    } else if(section==='studentsMentored'){
+        title='Students Mentored';
+        content = f.mentorships.map(m => `<p>${m.studentName} (${m.studentEmail})</p>`).join('');
+    } else if(section==='placementParticipation'){
+        title='Placement Drive Participation';
+        content = f.placements.map(p => `<p>${p.drive_name} - ${p.studentName}</p>`).join('');
+    }
+
+    document.getElementById('detailsTitle').innerText = title;
+    document.getElementById('detailsContent').innerHTML = content;
+    document.getElementById('detailsSection').scrollIntoView({behavior:'smooth'});
+}
+
+// Fetch on load
+fetchFacultyData();
+
+// Remove faculty
+async function removeFaculty() {
+    if (!confirm('Are you sure to remove this faculty?')) return;
+
+    try {
+        const res = await fetch(`/api/admin/remove-faculty/${facultyEmail}`, {
+            method: 'DELETE'
+        });
+        const data = await res.json();
+        if (data.success) {
+            alert('Faculty removed successfully');
+            window.location.href = 'admin-faculty.html';
+        } else {
+            alert(data.message);
+        }
+    } catch (err) {
+        console.error(err);
+        alert('Failed to remove faculty');
+    }
+}
+
+// Add opportunity (limited to internship/hackathon/competition)
+async function addOpportunity() {
+    const title = document.getElementById('oppTitle').value.trim();
+    const type = document.getElementById('oppType').value;
+    const desc = document.getElementById('oppDesc').value.trim();
+
+    if (!title || !desc) {
+        alert('Please fill all fields');
+        return;
+    }
+
+    try {
+        const res = await fetch('/api/admin/add-opportunity', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ facultyEmail, title, type, description: desc })
+        });
+        const data = await res.json();
+        if (data.success) {
+            alert('Opportunity posted successfully');
+            // Reload data to update counts
+            fetchFacultyData();
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addOpportunityModal'));
+            modal.hide();
+            // Clear form
+            document.getElementById('oppTitle').value = '';
+            document.getElementById('oppDesc').value = '';
+        } else {
+            alert(data.message);
+        }
+    } catch (err) {
+        console.error(err);
+        alert('Failed to post opportunity');
+    }
+}
+
+async function loadOpportunities() {
+  const facultyEmail = sessionStorage.getItem('facultyEmail');
+  const res = await fetch(`/faculty/view-opportunities/${facultyEmail}`);
+  const data = await res.json();
+
+  if (!data.success) {
+    document.getElementById('opportunityList').innerText = data.message;
+    return;
+  }
+
+  let html = '';
+  data.opportunities.forEach(op => {
+    html += `
+      <div class="card mb-2">
+        <div class="card-body">
+          <h5>${op.title}</h5>
+          <p><strong>Type:</strong> ${op.type}</p>
+          <p>${op.description}</p>
+          <small>Posted on: ${new Date(op.created_at).toLocaleString()}</small>
+        </div>
+      </div>`;
+  });
+  document.getElementById('opportunityList').innerHTML = html;
+}
+
+
+</script>
+</body>
+</html>

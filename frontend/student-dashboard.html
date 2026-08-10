@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aspira - Student Dashboard</title>
+
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/css/scrollCue.css">
+  <link rel="stylesheet" href="assets/css/remixicon.css">
+  <link rel="stylesheet" href="assets/css/flaticon.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <style>
+    .navbar .dropdown-menu .dropdown-item:hover { color: red !important; }
+    body, html { overflow-x: hidden; }
+    .status-listing { list-style: none; padding: 0; }
+    .status-listing li {
+      padding: 10px 0;
+      border-bottom: 1px dashed #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .status-badge { font-size: 0.85rem; padding: 4px 8px; border-radius: 5px; }
+    .event-box { border: 1px solid #f0f0f0; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="top-header-area style-2" style="padding: 12px 0;">
+    <div class="container text-center">
+      <h3 class="mb-0" style="color: #fff; font-weight: 700;">
+        <span style="font-family: 'Great Vibes', cursive; font-size: 36px;">Aspira</span>
+        – Central Placement and Information Center
+      </h3>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-2">
+    <div class="container">
+      <img src="assets/img/logo_necn.jpg" alt="Logo" height="70" width="160">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="student-dashboard.html" class="nav-link active">Dashboard</a></li>
+          <li class="nav-item"><a href="student-announcements.html" class="nav-link">Announcements</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Events</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="student-events-seminars.html">Seminars</a></li>
+              <li><a class="dropdown-item" href="student-events-workshops.html">Workshops</a></li>
+              <li><a class="dropdown-item" href="student-events-hackathons.html">Hackathons</a></li>
+              <li><a class="dropdown-item" href="student-events-career.html">Career Guidance</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="student-internships.html" class="nav-link">Internships</a></li>
+          <li class="nav-item"><a href="student-jobs.html" class="nav-link">Job Opportunities</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">My Account</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="student-profile.html">Profile</a></li>
+              <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner -->
+  <div class="pages-banner-area">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="pages-title">
+            <h2>Student Dashboard</h2>
+            <ul class="list-unstyled ps-0 mb-0">
+              <li><a href="index.html">Home</a></li>
+              <li>Student Dashboard</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="pages-image">
+            <img src="assets/img/pages/pages-10.jpg" alt="pages-image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Content -->
+  <div class="register-area ptb-100">
+    <div class="container">
+      <div class="text-center mb-4">
+        <span class="top-title">Welcome Back, <span id="studentName">Student</span></span>
+        <h2>Your Personalized Placement Hub</h2>
+      </div>
+
+      <!-- Applications -->
+      <div class="row mt-4">
+        <div class="col-lg-6 mb-4">
+          <div class="single-register-info p-4 h-100">
+            <h4 class="mb-3 text-primary"><i class="ri-briefcase-line me-2"></i> Application Status Overview</h4>
+            <ul class="status-listing" id="applicationList">
+              <li>Loading applications...</li>
+            </ul>
+            <div class="mt-4 text-center">
+              <a href="student-jobs.html" class="default-btn border-0 btn-sm">View All Applications <i class="flaticon-right-arrow"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Events -->
+        <div class="col-lg-6 mb-4">
+          <div class="single-register-info p-4 h-100">
+            <h4 class="mb-3 text-success"><i class="ri-calendar-event-line me-2"></i> Your Upcoming Events</h4>
+            <div class="event-box bg-light">
+              <p class="mb-1 fw-bold text-primary"><i class="ri-code-line me-1"></i> AWS Cloud Workshop</p>
+              <p class="mb-0 small">Nov 29, 2025 | 9:00 AM | CSE Labs, Block C</p>
+            </div>
+            <div class="mt-4 text-center">
+              <a href="student-events-workshops.html" class="default-btn border-0 btn-sm">View All Events <i class="flaticon-right-arrow"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+
+  <div class="footer-area pt-100 pb-75">
+        <div class="container">
+            <div class="row align-items-start">
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget about">
+                        <h3>About Aspira</h3>
+                        <p>Aspira is the Placement & Career Cell of Narayana Engineering College, Nellore. We provide centralized placement information, career guidance, skill development programs, and workshops to prepare students for top recruiters and industry opportunities.</p>
+                        <h6>Follow Aspira:</h6>
+                        <ul class="list-unstyled ps-0 mb-0 social-link">
+                            <li class="d-inline-block"><a class="text-decoration-none" href="https://www.facebook.com/" target="_blank"><i class="flaticon-facebook-app-symbol"></i></a></li>
+                            <li class="d-inline-block"><a class="text-decoration-none" href="https://www.pinterest.com/" target="_blank"><i class="flaticon-pinterest"></i></a></li>
+                            <li class="d-inline-block"><a class="text-decoration-none" href="https://www.instagram.com/" target="_blank"><i class="flaticon-instagram"></i></a></li>
+                            <li class="d-inline-block"><a class="text-decoration-none" href="https://twitter.com/" target="_blank"><i class="flaticon-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget quick">
+                        <h3>Quick Links</h3>
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li><a class="text-decoration-none" href="student-internships.html">Internships</a></li>
+                            <li><a class="text-decoration-none" href="student-jobs.html">Job Opportunities</a></li>
+                            <li><a class="text-decoration-none" href="student-events-workshops.html">Workshops & Events</a></li>
+                            <li><a class="text-decoration-none" href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget contact">
+                        <h3>Contact Placement Cell</h3>
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li><a class="text-decoration-none" href="tel:+919999999999">+91 99999 99999 <i class="ri-phone-line"></i></a></li>
+                            <li><a class="text-decoration-none" href="mailto:aspira@necn.ac.in">aspira@necn.ac.in <i class="ri-message-line"></i></a></li>
+                            <li><i class="flaticon-placeholder"></i><p>Narayana Engineering College, Nellore<br>NH-16, Muthukur Road, Nellore, Andhra Pradesh 524003</p></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-2 col-sm-12 d-flex align-items-center">
+                    <div class="copyright-logo">
+                        <img src="assets/img/favicon.png" alt="aspira-logo" width="70" height="50">
+                        <p class="mb-0">Aspira</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-sm-6">
+                    <div class="copyright-title text-lg-end text-sm-start">
+                        <p class="mb-0">© <strong>Aspira</strong> Placement & Career Cell. All Rights Reserved.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-sm-6">
+                    <div class="copyright-list text-lg-end text-sm-start">
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li class="d-inline-block me-3"><a class="text-decoration-none" href="faculty.html">P&T Team</a></li>
+                            <li class="d-inline-block me-3"><a class="text-decoration-none" href="placement-overview.html">Placements Info</a></li>
+                            <li class="d-inline-block"><a class="text-decoration-none" href="career-guidance.html">About Aspira</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <button type="button" id="back-to-top">
+        <i class="ri-arrow-up-double-fill"></i>
+    </button>
+
+  <!-- <div class="footer-area pt-100 pb-75">
+    <div class="container text-center">
+      <p>© <strong>Aspira</strong> Placement & Career Cell. All Rights Reserved.</p>
+    </div>
+  </div> -->
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/scrollCue.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const studentId = localStorage.getItem("student_id");
+      const studentName = localStorage.getItem("student_name");
+
+      if (!studentId || !studentName) {
+        alert("Session expired! Please log in again.");
+        window.location.href = "login-student.html";
+        return;
+      }
+
+      document.getElementById("studentName").textContent = studentName;
+
+      // Fetch student profile
+      try {
+        const res = await fetch(`/api/student/${studentId}`);
+        const data = await res.json();
+        if (!data.success) console.warn(data.message);
+      } catch (err) {
+        console.error("Error loading student profile:", err);
+      }
+
+      // Fetch applications
+      try {
+        const res = await fetch(`/api/student/${studentId}/applications`);
+        const data = await res.json();
+        const list = document.getElementById("applicationList");
+        list.innerHTML = "";
+
+        if (data.success && data.applications.length) {
+          data.applications.forEach(app => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+              <strong>${app.company_name} - ${app.title}</strong>
+              <span class="status-badge bg-info text-white">${app.status}</span>`;
+            list.appendChild(li);
+          });
+        } else {
+          list.innerHTML = "<li>No applications found yet.</li>";
+        }
+      } catch (err) {
+        console.error("Error fetching applications:", err);
+      }
+
+      // Logout
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("student_id");
+        localStorage.removeItem("student_name");
+        alert("Logged out successfully!");
+        window.location.href = "login-student.html";
+      });
+    });
+  </script>
+</body>
+</html>

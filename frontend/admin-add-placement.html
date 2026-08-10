@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Placement Drive</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+  <div class="container mt-5">
+    <div class="card shadow p-4">
+      <h3 class="text-center mb-4">Add New Placement Drive</h3>
+
+      <form id="placementForm">
+        <div class="mb-3">
+          <label class="form-label">Title</label>
+          <input type="text" class="form-control" name="title" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Company Name</label>
+          <input type="text" class="form-control" name="company_name" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <textarea class="form-control" name="description" rows="3"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Type</label>
+          <select class="form-select" name="type">
+            <option value="placement">Placement</option>
+            <option value="internship">Internship</option>
+            <option value="hackathon">Hackathon</option>
+            <option value="competition">Competition</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Salary Package (LPA)</label>
+          <input type="number" class="form-control" step="0.1" name="salary_package">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Eligibility</label>
+          <input type="text" class="form-control" name="eligibility" placeholder="e.g. B.Tech CSE/ECE">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Process Details</label>
+          <textarea class="form-control" name="process_details" rows="2"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Due Date</label>
+          <input type="date" class="form-control" name="due_date">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Add Placement Drive</button>
+      </form>
+
+      <div id="msg" class="mt-3 text-center"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('placementForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const form = e.target;
+
+  // Only use fields that exist in the table
+  const payload = {
+    company_name: form.company_name.value,
+    title: form.title.value,          // <-- title instead of job_role
+    eligibility: form.eligibility.value,
+    salary_package: form.salary_package.value || null,
+    process_details: form.process_details.value || null,
+    due_date: form.due_date.value || null,
+    description: form.description.value || null,
+    type: 'placement',                // always placement
+    posted_by: 'admin'
+  };
+
+  // Simple frontend validation
+  if(!payload.company_name || !payload.title){
+    alert('Title and Company Name are required');
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/opportunities/add', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if(data.success){
+      alert('Placement added successfully!');
+      window.location.href = 'admin-opportunities.html';
+    } else {
+      alert(data.message || 'Failed to add placement');
+    }
+  } catch(err){
+    console.error(err);
+    alert('Network or server error while adding placement');
+  }
+});
+
+
+
+  </script>
+</body>
+</html>

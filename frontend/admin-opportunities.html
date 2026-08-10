@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspira – Admin Opportunities Management</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/scrollCue.css">
+    <link rel="stylesheet" href="assets/css/remixicon.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href="assets/img/favicon.png" type="image/x-icon" rel="icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        .admin-wrapper {
+            padding: 50px 0;
+            background-color: #f8fbff;
+        }
+
+        .stats-card-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border-top: 3px solid #0d47a1;
+            transition: 0.3s;
+            height: 100%;
+        }
+
+        .filter-section-admin {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .table-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .table thead {
+            background-color: #0d47a1;
+            color: #fff;
+        }
+
+        .section-heading-admin {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-heading-admin::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: 25px;
+            width: 4px;
+            background: #ff0000;
+        }
+
+        .badge-type {
+            font-size: 11px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-header-area style-2" style="padding: 12px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <h3 class="mb-0" style="color: #fff; font-weight: 700; letter-spacing: 1px; line-height: 1.4; font-size: 26px;">
+                        <span style="font-family: 'Great Vibes', cursive; font-size: 36px; font-weight: 600; margin-right: 6px;">
+                            Aspira
+                        </span>
+                        – Central Placement and Information Center
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-2" id="navbar">
+        <div class="container">
+            <img src="assets/img/logo_necn.jpg" alt="Logo" height="70" width="160">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="admin-dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li class="nav-item"><a href="admin-students.html" class="nav-link">Students</a></li>
+                    <li class="nav-item"><a href="admin-faculty.html" class="nav-link">Faculty</a></li>
+                    <li class="nav-item"><a href="admin-opportunities.html" class="nav-link active" style="color: red; font-weight: bold;">Opportunities</a></li>
+                    <li class="nav-item"><a href="admin-reports.html" class="nav-link">Reports</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link" style="color: #666;">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-wrapper">
+        <div class="container-fluid px-4">
+            
+            <div class="row g-3 mb-5">
+                <div class="col-md-2">
+                    <div class="stats-card-item">
+                        <h6 class="text-muted">Total</h6>
+                        <h3 id="totalOpportunities">0</h3>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="stats-card-item" style="border-top-color: #0d6efd;">
+                        <h6 class="text-muted">Placements</h6>
+                        <h3 id="placementsCount">0</h3>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="stats-card-item" style="border-top-color: #198754;">
+                        <h6 class="text-muted">Internships</h6>
+                        <h3 id="internshipsCount">0</h3>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="stats-card-item" style="border-top-color: #ffc107;">
+                        <h6 class="text-muted">Hackathons</h6>
+                        <h3 id="hackathonsCount">0</h3>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="stats-card-item" style="border-top-color: #dc3545;">
+                        <h6 class="text-muted">Competitions</h6>
+                        <h3 id="competitionsCount">0</h3>
+                    </div>
+                </div>
+                <div class="col-md-2 text-end">
+                    <a href="admin-add-placement.html" class="default-btn border-0 w-100 text-center" style="background:#0d47a1; color:white; padding: 15px 10px;">
+                        Add Drive <i class="ri-add-circle-line"></i>
+                    </a>
+                </div>
+            </div>
+
+            <h4 class="section-heading-admin">Filter Opportunities</h4>
+            <div class="filter-section-admin">
+                <div class="row g-3">
+                    <div class="col-lg-2">
+                        <select id="filterType" class="form-select">
+                            <option value="all">All Types</option>
+                            <option value="placement">Placement</option>
+                            <option value="internship">Internship</option>
+                            <option value="hackathon">Hackathon</option>
+                            <option value="competition">Competition</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <select id="filterDue" class="form-select">
+                            <option value="all">Status</option>
+                            <option value="open">Open</option>
+                            <option value="closingSoon">Closing Soon</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="number" id="minPackage" class="form-control" placeholder="Min LPA">
+                    </div>
+                    <div class="col-lg-3">
+                        <input type="text" id="searchTerm" class="form-control" placeholder="Search Company or Title...">
+                    </div>
+                    <div class="col-lg-3 d-flex gap-2">
+                        <select id="filterFaculty" class="form-select">
+                            <option value="all">All Faculty</option>
+                        </select>
+                        <button id="refreshBtn" class="btn btn-outline-primary"><i class="ri-refresh-line"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-card">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Opportunity Title</th>
+                                <th>Type</th>
+                                <th>Posted By</th>
+                                <th>Company</th>
+                                <th>Package</th>
+                                <th>Posted Date</th>
+                                <th>Due Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="opportunitiesTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="viewStudentsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="mb-0">Enrolled Students</h4>
+                    <button class="btn btn-success btn-sm" onclick="downloadCSV()">
+                        <i class="ri-download-cloud-2-line"></i> Export CSV
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Branch</th>
+                                <th>Reg. Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentsTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-area pt-100 pb-75">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="single-footer-widget about">
+                        <h3>About Aspira</h3>
+                        <p>Narayana Engineering College Placement Cell. Managing career paths and industry connections for students.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-end">
+                    <img src="assets/img/favicon.png" alt="logo" width="60">
+                    <p class="mt-2 text-muted">© 2026 Aspira Placement Cell</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    let opportunitiesData = [];
+    let currentStudents = [];
+
+    async function loadOpportunities() {
+        // Note: Replace with actual API end-point
+        try {
+            const res = await fetch('/api/opportunities/all-opportunities');
+            const data = await res.json();
+            if(!data.success){ console.warn('API data fetch failed, using fallback'); return; }
+            opportunitiesData = data.opportunities;
+            renderOpportunities();
+        } catch(err) {
+            console.error(err);
+        }
+    }
+
+    function renderOpportunities() {
+        const typeFilter = document.getElementById('filterType').value;
+        const facultyFilter = document.getElementById('filterFaculty').value;
+        const dueFilter = document.getElementById('filterDue').value;
+        const minPackage = parseFloat(document.getElementById('minPackage').value);
+        const searchTerm = document.getElementById('searchTerm').value.toLowerCase();
+
+        let filtered = opportunitiesData;
+
+        if(typeFilter!=='all') filtered = filtered.filter(o => o.type===typeFilter);
+        if(facultyFilter!=='all') filtered = filtered.filter(o => o.faculty_name===facultyFilter);
+
+        const today = new Date();
+        filtered = filtered.filter(o=>{
+            let dueOk = true;
+            if(dueFilter==='open') dueOk = o.due_date ? new Date(o.due_date)>=today : true;
+            else if(dueFilter==='closed') dueOk = o.due_date ? new Date(o.due_date)<today : false;
+            return dueOk;
+        });
+
+        if(!isNaN(minPackage)) filtered = filtered.filter(o => o.salary_package && parseFloat(o.salary_package)>=minPackage);
+        if(searchTerm) filtered = filtered.filter(o => (o.title||'').toLowerCase().includes(searchTerm) || (o.company_name||'').toLowerCase().includes(searchTerm));
+
+        const table = document.getElementById('opportunitiesTable');
+        table.innerHTML='';
+
+        // Stats Update
+        document.getElementById('totalOpportunities').textContent = opportunitiesData.length;
+        document.getElementById('placementsCount').textContent = opportunitiesData.filter(o=>o.type==='placement').length;
+        document.getElementById('internshipsCount').textContent = opportunitiesData.filter(o=>o.type==='internship').length;
+        document.getElementById('hackathonsCount').textContent = opportunitiesData.filter(o=>o.type==='hackathon').length;
+        document.getElementById('competitionsCount').textContent = opportunitiesData.filter(o=>o.type==='competition').length;
+
+        if(filtered.length===0){
+            table.innerHTML=`<tr><td colspan="9" class="text-center text-muted py-4">No opportunities match your criteria</td></tr>`;
+            return;
+        }
+
+        filtered.forEach((op,index)=>{
+            table.insertAdjacentHTML('beforeend',`
+            <tr>
+                <td>${index+1}</td>
+                <td class="fw-bold">${op.title || op.company_name}</td>
+                <td><span class="badge badge-type bg-${getBadgeColor(op.type)}">${op.type}</span></td>
+                <td>${op.faculty_name || 'Admin'}</td>
+                <td>${op.company_name || '-'}</td>
+                <td>${op.salary_package || '-'} LPA</td>
+                <td>${op.created_at ? new Date(op.created_at).toLocaleDateString() : '-'}</td>
+                <td>${op.due_date ? new Date(op.due_date).toLocaleDateString() : '-'}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-info" onclick="viewStudents(${op.id},'${op.type}')"><i class="bi bi-people"></i></button>
+                    <button class="btn btn-sm btn-outline-danger ms-1" onclick="deleteOpportunity(${op.id},'${op.type}')"><i class="bi bi-trash"></i></button>
+                </td>
+            </tr>`);
+        });
+    }
+
+    function getBadgeColor(type){
+        switch(type){
+            case 'placement': return 'primary';
+            case 'internship': return 'success';
+            case 'hackathon': return 'warning text-dark';
+            case 'competition': return 'danger';
+            default: return 'secondary';
+        }
+    }
+
+    // Modal and Delete Functions (Same as original)
+    async function deleteOpportunity(id,type){
+        if(!confirm('Delete this opportunity?')) return;
+        const url = type==='placement' ? `/api/opportunities/delete/${id}` : `/faculty/delete/${id}`;
+        const body = type==='placement' ? null : JSON.stringify({role:'admin'});
+        const res = await fetch(url,{ method:'DELETE', headers: body ? {'Content-Type':'application/json'} : {}, body });
+        const data = await res.json();
+        alert(data.message);
+        loadOpportunities();
+    }
+
+    async function viewStudents(opId,type){
+        const url = type==='placement' ? `/admin/placement-students/${opId}` : `/admin/opportunity-students/${opId}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        if(!data.success){ alert('Fetch failed'); return; }
+        currentStudents = data.students;
+        const table = document.getElementById('studentsTable');
+        table.innerHTML = currentStudents.length ? currentStudents.map((s,i)=>`
+            <tr>
+                <td>${i+1}</td>
+                <td>${s.name}</td>
+                <td>${s.email}</td>
+                <td>${s.department || s.branch}</td>
+                <td>${new Date(s.registered_on).toLocaleDateString()}</td>
+            </tr>`).join('') : `<tr><td colspan="5" class="text-center">No students enrolled</td></tr>`;
+        new bootstrap.Modal(document.getElementById('viewStudentsModal')).show();
+    }
+
+    function downloadCSV(){
+        if(!currentStudents.length) return;
+        const csvContent = "data:text/csv;charset=utf-8,Name,Email,Branch,Date\n" + 
+            currentStudents.map(s=>`${s.name},${s.email},${s.department || s.branch},${new Date(s.registered_on).toLocaleDateString()}`).join("\n");
+        const link = document.createElement("a");
+        link.setAttribute("href", encodeURI(csvContent));
+        link.setAttribute("download", "enrolled_students.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    ['filterType','filterFaculty','filterDue','minPackage','searchTerm'].forEach(id=>{
+        document.getElementById(id).addEventListener('input', renderOpportunities);
+    });
+    document.getElementById('refreshBtn').addEventListener('click', loadOpportunities);
+
+    loadOpportunities();
+    </script>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspira – Admin Faculty Management</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/scrollCue.css">
+    <link rel="stylesheet" href="assets/css/remixicon.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href="assets/img/favicon.png" type="image/x-icon" rel="icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Shared Style with Dashboard/Students */
+        .admin-wrapper {
+            padding: 50px 0;
+            background-color: #f8fbff;
+        }
+
+        .stats-card-item {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border-top: 3px solid #0d47a1;
+            transition: 0.3s;
+        }
+
+        .faculty-list-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            transition: 0.3s;
+            border: 1px solid #f1f1f1;
+        }
+
+        .faculty-list-card:hover {
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.1);
+            border-color: #0d47a1;
+        }
+
+        .badge-activeness {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .badge-high { background-color: #e8f5e9; color: #2e7d32; }
+        .badge-medium { background-color: #fff3e0; color: #ef6c00; }
+        .badge-low { background-color: #ffebee; color: #c62828; }
+
+        .filter-section-admin {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .section-heading-admin {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-heading-admin::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: 25px;
+            width: 4px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-header-area style-2" style="padding: 12px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <h3 class="mb-0" style="color: #fff; font-weight: 700; letter-spacing: 1px; line-height: 1.4; font-size: 26px;">
+                        <span style="font-family: 'Great Vibes', cursive; font-size: 36px; font-weight: 600; margin-right: 6px;">
+                            Aspira
+                        </span>
+                        – Central Placement and Information Center
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-2" id="navbar">
+        <div class="container">
+            <img src="assets/img/logo_necn.jpg" alt="Logo" height="70" width="160">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="admin-dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li class="nav-item"><a href="admin-students.html" class="nav-link">Students</a></li>
+                    <li class="nav-item"><a href="admin-faculty.html" class="nav-link active" style="color: red; font-weight: bold;">Faculty</a></li>
+                    <li class="nav-item"><a href="admin-opportunities.html" class="nav-link">Opportunities</a></li>
+                    <li class="nav-item"><a href="admin-reports.html" class="nav-link">Reports</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link" style="color: #666;">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-wrapper">
+        <div class="container">
+            
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card-item">
+                        <h3 id="totalFaculty">0</h3>
+                        <p>Total Faculty</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card-item" style="border-top-color: #28a745;">
+                        <h3 id="facultyInDrives">0</h3>
+                        <p>In Drives</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card-item" style="border-top-color: #17a2b8;">
+                        <h3 id="mentoringFaculty">0</h3>
+                        <p>Mentors</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card-item" style="border-top-color: #ffc107;">
+                        <h3 id="facultyActiveness">0%</h3>
+                        <p>Avg Activeness</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="section-heading-admin">Manage Faculty Team</h4>
+            <div class="filter-section-admin">
+                <div class="row g-3">
+                    <div class="col-lg-4">
+                        <input type="text" id="facultySearch" class="form-control" placeholder="Search by name or department...">
+                    </div>
+                    <div class="col-lg-3">
+                        <select id="filterParticipation" class="form-select">
+                            <option value="all">Participation Status</option>
+                            <option value="yes">In Placement Drives</option>
+                            <option value="no">Not Participating</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3">
+                        <select id="filterActiveness" class="form-select">
+                            <option value="all">Activity Level</option>
+                            <option value="high">High Activeness</option>
+                            <option value="medium">Medium Activeness</option>
+                            <option value="low">Low Activeness</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <button class="default-btn border-0 w-100" data-bs-toggle="modal" data-bs-target="#addFacultyModal" style="background:#0d47a1; color:white;">
+                            <i class="ri-user-add-line"></i> Add New
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="facultyList"></div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="addFacultyModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content p-4">
+                <h4 class="mb-3">Register New Faculty</h4>
+                <div class="form-group mb-2"><input type="text" id="newFacultyName" class="form-control" placeholder="Full Name"></div>
+                <div class="form-group mb-2"><input type="email" id="newFacultyEmail" class="form-control" placeholder="Email Address"></div>
+                <div class="form-group mb-2"><input type="text" id="newFacultyDept" class="form-control" placeholder="Department (e.g. CSE)"></div>
+                <div class="form-group mb-3"><input type="password" id="newFacultyPassword" class="form-control" placeholder="Set Initial Password"></div>
+                <button class="default-btn border-0 w-100" onclick="addFaculty()" style="background:#0d47a1; color:white;">Save Faculty Member</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editFacultyModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content p-4">
+                <h4 class="mb-3">Update Faculty Info</h4>
+                <input type="text" id="editFacultyName" class="form-control mb-2" placeholder="Name">
+                <input type="email" id="editFacultyEmail" class="form-control mb-2" disabled>
+                <input type="text" id="editFacultyDept" class="form-control mb-3" placeholder="Department">
+                <button class="default-btn border-0 w-100" onclick="updateFaculty()" style="background:#ffc107; color:black;">Update Records</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-area pt-100 pb-75">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="single-footer-widget about">
+                        <h3>About Aspira</h3>
+                        <p>Central Placement Cell - Narayana Engineering College, Nellore. Providing placement info and guidance.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <img src="assets/img/favicon.png" alt="logo" width="80">
+                    <p class="mt-3">© 2026 Aspira Placement Cell</p>
+                </div>
+                <div class="col-lg-4 text-end">
+                    <div class="single-footer-widget contact">
+                        <h3>Contact</h3>
+                        <p>aspira@necn.ac.in</p>
+                        <p>+91 99999 99999</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script>
+    let facultyData = [];
+
+    // Helper for Badge
+    function getActivenessBadge(score) {
+        let cls = score >= 75 ? 'badge-high' : (score >= 50 ? 'badge-medium' : 'badge-low');
+        return `<span class="badge-activeness ${cls}">${score}% Active</span>`;
+    }
+
+    // Standard Render Logic
+    function renderFaculty(data) {
+        const list = document.getElementById('facultyList');
+        if(!data.length) return list.innerHTML = `<div class="text-center py-5">No faculty found.</div>`;
+
+        list.innerHTML = data.map(f => `
+            <div class="faculty-list-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h5 class="mb-1">${f.name} <span class="badge bg-light text-dark ms-2" style="font-size:11px;">${f.department}</span></h5>
+                        <p class="mb-2 text-muted" style="font-size:13px;">${f.email}</p>
+                        <div class="d-flex gap-3" style="font-size:12px;">
+                            <span><i class="ri-briefcase-line"></i> Drives: ${f.inDrive ? 'Yes' : 'No'}</span>
+                            <span><i class="ri-user-star-line"></i> Mentored: ${f.studentsMentored}</span>
+                            <span><i class="ri-article-line"></i> Blogs: ${f.blogs || 0}</span>
+                            ${getActivenessBadge(f.activenessScore)}
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-end">
+                        <button class="btn btn-sm btn-outline-warning" onclick="editFaculty('${f.email}')"><i class="bi bi-pencil"></i></button>
+                        <button class="btn btn-sm btn-outline-danger mx-1" onclick="removeFaculty('${f.email}')"><i class="bi bi-trash"></i></button>
+                        <button class="btn btn-sm btn-primary" onclick="viewFaculty('${f.email}')">View Details <i class="ri-arrow-right-s-line"></i></button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        // Update Summary Stats
+        document.getElementById('totalFaculty').innerText = data.length;
+        document.getElementById('facultyInDrives').innerText = data.filter(f => f.inDrive).length;
+        document.getElementById('mentoringFaculty').innerText = data.filter(f => f.studentsMentored > 0).length;
+        document.getElementById('facultyActiveness').innerText = Math.round(data.reduce((a,b)=>a+b.activenessScore,0)/data.length || 0) + '%';
+    }
+
+    // Filter Logic
+    function applyFilters() {
+        const search = document.getElementById('facultySearch').value.toLowerCase();
+        const part = document.getElementById('filterParticipation').value;
+        const act = document.getElementById('filterActiveness').value;
+
+        let filtered = facultyData.filter(f => f.name.toLowerCase().includes(search) || f.department.toLowerCase().includes(search));
+        if(part !== 'all') filtered = filtered.filter(f => (part === 'yes') === f.inDrive);
+        if(act==='high') filtered = filtered.filter(f=>f.activenessScore>=75);
+        else if(act==='medium') filtered = filtered.filter(f=>f.activenessScore>=50 && f.activenessScore<75);
+        else if(act==='low') filtered = filtered.filter(f=>f.activenessScore<50);
+
+        renderFaculty(filtered);
+    }
+
+    document.getElementById('facultySearch').addEventListener('input', applyFilters);
+    document.getElementById('filterParticipation').addEventListener('change', applyFilters);
+    document.getElementById('filterActiveness').addEventListener('change', applyFilters);
+
+    // Initial Fetch (Placeholder)
+    async function loadFaculty() {
+        // Replace this with your actual API fetch
+        facultyData = [
+            { name: "Dr. Arun Kumar", email: "arun@necn.ac.in", department: "CSE", inDrive: true, studentsMentored: 12, activenessScore: 85, opportunities: {internships: 2, hackathons: 1, competitions: 0} },
+            { name: "Prof. S. Lakshmi", email: "lakshmi@necn.ac.in", department: "ECE", inDrive: false, studentsMentored: 5, activenessScore: 45, opportunities: {internships: 0, hackathons: 0, competitions: 1} }
+        ];
+        renderFaculty(facultyData);
+    }
+    loadFaculty();
+    </script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspira - Student Login</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/scrollCue.css">
+    <link rel="stylesheet" href="assets/css/remixicon.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        .navbar .dropdown-menu .dropdown-item {
+            transition: color 0.3s ease;
+        }
+        .navbar .dropdown-menu .dropdown-item:hover {
+            color: red !important;
+        }
+        body, html {
+            overflow-x: hidden;
+        }
+        #navbar img {
+            max-width: 100%;
+            height: auto;
+        }
+        .top-header-area h3 {
+            word-wrap: break-word;
+        }
+        .navbar .dropdown-menu .dropdown-item.active {
+            background-color: transparent !important;
+            color: red !important;
+            font-weight: normal !important;
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="assets/img/favicon.png" type="image/x-icon" rel="icon">
+</head>
+<body>
+
+    <!-- Top Header -->
+    <div class="top-header-area style-2" style="padding: 12px 0;">
+        <div class="container text-center">
+            <h3 style="color: #fff; font-weight: 700; letter-spacing: 1px;">
+                <span style="font-family: 'Great Vibes', cursive; font-size: 36px; font-weight: 600; margin-right: 6px;">Aspira</span>
+                – Central Placement and Information Center
+            </h3>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-2" id="navbar">
+        <div class="container">
+            <img src="assets/img/logo_necn.jpg" alt="Logo" height="70" width="160">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Placements</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="announcements.html">Announcements</a></li>
+                            <li><a class="dropdown-item" href="companies.html">Companies</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Login</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="login-student.html">Student Login</a></li>
+                            <li><a class="dropdown-item" href="login-faculty.html">Faculty Login</a></li>
+                            <li><a class="dropdown-item" href="login-admin.html">Admin Login</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Banner -->
+    <div class="pages-banner-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="pages-title">
+                        <h2>Student Login</h2>
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li class="d-inline-block"><a href="index.html">Home</a></li>
+                            <li class="d-inline-block">Student Login</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="pages-image">
+                        <img src="assets/img/pages/pages-10.jpg" alt="pages-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shape-7"><img src="assets/img/shape/shape-7.png" alt="shape"></div>
+    </div>
+
+    <!-- Student Login Form -->
+    <div class="register-area ptb-100">
+        <div class="container">
+            <div class="single-register-info">
+                <h3 class="mb-4 text-center text-dark">Student Login</h3>
+                <form id="studentLoginForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                    </div>
+                    <button type="submit" class="default-btn border-0">
+                        Log In <i class="flaticon-right-arrow"></i>
+                    </button>
+                </form>
+                <p id="loginMessage" style="text-align:center; color:red; margin-top:10px;"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-area pt-100 pb-75">
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget about">
+                        <h3>About Aspira</h3>
+                        <p>Aspira is the Placement & Career Cell of Narayana Engineering College, Nellore...</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget quick">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="placement-overview.html">Placement Info</a></li>
+                            <li><a href="career-guidance.html">Career Guidance</a></li>
+                            <li><a href="events.html">Workshops & Events</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget contact">
+                        <h3>Contact Placement Cell</h3>
+                        <ul>
+                            <li><a href="tel:+919999999999">+91 99999 99999</a></li>
+                            <li><a href="mailto:aspira@necn.ac.in">aspira@necn.ac.in</a></li>
+                            <li>Narayana Engineering College, Nellore</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright-area">
+        <div class="container text-center">
+            <p>© <strong>Aspira</strong> Placement & Career Cell. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <!-- JS Files -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/fslightbox.js"></script>
+    <script src="assets/js/scrollCue.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <!-- ✅ Active Menu -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let currentPage = window.location.pathname.split("/").pop() || "index.html";
+        document.querySelectorAll(".navbar-nav .nav-link").forEach(link => {
+            if (link.getAttribute("href") === currentPage) link.classList.add("active");
+        });
+    });
+    </script>
+
+    <!-- ✅ Student Login Script -->
+    <script>
+    document.getElementById("studentLoginForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const messageEl = document.getElementById("loginMessage");
+
+        if (!email || !password) {
+            messageEl.textContent = "Please enter both email and password.";
+            return;
+        }
+
+        try {
+            const res = await fetch("http://localhost:3000/api/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password, role: "student" })
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                localStorage.setItem("student_id", data.user.id);
+                localStorage.setItem("student_name", data.user.name);
+                localStorage.setItem("student_email", data.user.email);
+                localStorage.setItem("role", data.user.role);
+
+                alert("Login successful! Welcome " + data.user.name);
+                window.location.href = "student-dashboard.html";
+            } else {
+                messageEl.textContent = data.message || "Invalid credentials.";
+            }
+        } catch (err) {
+            console.error("Login error:", err);
+            messageEl.textContent = "Server error. Please try again later.";
+        }
+    });
+    </script>
+
+</body>
+</html>

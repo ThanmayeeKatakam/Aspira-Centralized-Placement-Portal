@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspira - Student Job Opportunities</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/scrollCue.css">
+    <link rel="stylesheet" href="assets/css/remixicon.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        /* Desktop dropdown submenu hover effect */
+        .navbar .dropdown-menu .dropdown-item {
+            transition: color 0.3s ease;
+        }
+        .navbar .dropdown-menu .dropdown-item:hover {
+            color: red !important;
+        }
+
+        /* Prevent horizontal overflow */
+        body, html {
+            overflow-x: hidden;
+        }
+        #navbar img {
+            max-width: 100%;
+            height: auto;
+        }
+        .top-header-area h3 {
+            word-wrap: break-word;
+        }
+
+        /* Override Bootstrap active dropdown style */
+        .navbar .dropdown-menu .dropdown-item.active {
+            background-color: transparent !important;
+            color: red !important;
+            font-weight: normal !important;
+        }
+
+        /* Custom styles for the job listings (similar to internships but with a different focus) */
+        .job-listing {
+            border: 1px solid #e0e0e0;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            background-color: #fff;
+            transition: box-shadow 0.3s ease;
+        }
+        .job-listing:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        .job-listing h4 {
+            color: #172b4d; /* Dark blue/header color for title */
+            font-weight: 600;
+        }
+        .job-meta span {
+            display: inline-block;
+            margin-right: 20px;
+            color: #6c757d;
+            font-size: 15px;
+        }
+        .job-meta i {
+            margin-right: 5px;
+            color: #ff5722; /* Accent color for icons */
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link href="assets/img/favicon.png" type="image/x-icon" rel="icon">
+</head>
+<body>
+
+    <div class="top-header-area style-2" style="padding: 12px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <h3 class="mb-0" style="color: #fff; font-weight: 700; letter-spacing: 1px; line-height: 1.4; font-size: 26px;">
+                        <span style="font-family: 'Great Vibes', cursive; font-size: 36px; font-weight: 600; margin-right: 6px;">
+                            Aspira
+                        </span>
+                        – Central Placement and Information Center
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-2" id="navbar">
+        <div class="container">
+            <img src="assets/img/logo_necn.jpg" alt="Logo" height="70" width="160">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="student-dashboard.html" class="nav-link">Dashboard</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="student-announcements.html" class="nav-link">Announcements</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Events
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="student-events-seminars.html">Seminars</a></li>
+                            <li><a class="dropdown-item" href="student-events-workshops.html">Workshops</a></li>
+                            <li><a class="dropdown-item" href="student-events-hackathons.html">Hackathons</a></li>
+                            <li><a class="dropdown-item" href="student-events-career.html">Career Guidance</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="student-internships.html" class="nav-link">Internships</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="student-jobs.html" class="nav-link active">Job Opportunities</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            My Account
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="student-profile.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="pages-banner-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="pages-title">
+                        <h2>Job Opportunities</h2>
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li class="d-inline-block">
+                                <a class="text-decoration-none" href="student-dashboard.html">Dashboard</a>
+                            </li>
+                            <li class="d-inline-block">Job Opportunities</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="pages-image">
+                        <img src="assets/img/pages/pages-11.jpg" alt="pages-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shape-7">
+            <img src="assets/img/shape/shape-7.png" alt="shape">
+        </div>
+    </div>
+    <div class="register-area ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center mb-5">
+                        <span class="top-title">Start Your Career</span>
+                        <h2>Full-Time Placement Drives for Graduating Batch</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <!-- <div class="col-lg-12">
+                    <div class="job-listing">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h4>Associate Software Engineer (Batch 2026)</h4>
+                                <p class="mb-2"><strong>Company:</strong> Global Tech Giant</p>
+                                <div class="job-meta">
+                                    <span><i class="ri-map-pin-line"></i> Multiple Metro Cities</span>
+                                    <span><i class="ri-briefcase-line"></i> Full-Time</span>
+                                    <span><i class="ri-money-rupee-circle-line"></i> 4.5 LPA - 6.0 LPA</span>
+                                    <span><i class="ri-calendar-line"></i> **Drive Date:** Nov 18, 2025</span>
+                                </div>
+                                <p class="mb-0">Recruiting CSE, ECE, and IT graduates. The drive includes an online aptitude test, technical interview, and HR round. Mandatory registration on the Aspira portal is required.</p>
+                            </div>
+                            <span class="badge bg-primary">Placement Drive</span>
+                        </div>
+                        <div class="mt-3 text-end">
+                            <a href="#" class="default-btn border-0 btn-sm">
+                                Register for Drive
+                                <i class="flaticon-right-arrow"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="job-listing">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h4>Junior Mechanical Design Engineer</h4>
+                                <p class="mb-2"><strong>Company:</strong> Auto Components Ltd.</p>
+                                <div class="job-meta">
+                                    <span><i class="ri-map-pin-line"></i> Pune, Maharashtra</span>
+                                    <span><i class="ri-briefcase-line"></i> Full-Time</span>
+                                    <span><i class="ri-money-rupee-circle-line"></i> 5.2 LPA</span>
+                                    <span><i class="ri-calendar-line"></i> **Apply By:** Nov 10, 2025</span>
+                                </div>
+                                <p class="mb-0">Opportunity for Mechanical and Civil engineering students with strong CAD/CAM skills. Shortlisting based on academic performance and technical skills test.</p>
+                            </div>
+                            <span class="badge bg-info">Core Sector</span>
+                        </div>
+                        <div class="mt-3 text-end">
+                            <a href="#" class="default-btn border-0 btn-sm">
+                                View JD & Apply
+                                <i class="flaticon-right-arrow"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <div class="col-lg-12">
+                    <div class="job-listing">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h4>Full Stack Developer (Premium Hiring)</h4>
+                                <p class="mb-2"><strong>Company:</strong> InnovateX Startups</p>
+                                <div class="job-meta">
+                                    <span><i class="ri-map-pin-line"></i> Bangalore / Hybrid</span>
+                                    <span><i class="ri-briefcase-line"></i> Full-Time</span>
+                                    <span><i class="ri-money-rupee-circle-line"></i> 8.0 LPA - 12.0 LPA</span>
+                                    <span><i class="ri-calendar-line"></i> **Apply By:** Dec 01, 2025</span>
+                                </div>
+                                <p class="mb-0">Looking for top 5% talent in CSE/IT. Requires expert knowledge of MERN stack. Interview process involves 2 coding rounds and 2 technical interviews.</p>
+                            </div>
+                            <span class="badge bg-danger">Top Tier</span>
+                        </div>
+                        <div class="mt-3 text-end">
+                            <a href="#" class="default-btn border-0 btn-sm">
+                                Apply via Link
+                                <i class="flaticon-right-arrow"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="col-lg-12 text-center mt-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-area pt-100 pb-75">
+        <div class="container">
+            <div class="row align-items-start">
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget about">
+                        <h3>About Aspira</h3>
+                        <p>Aspira is the Placement & Career Cell of Narayana Engineering College, Nellore. We provide centralized placement information, career guidance, skill development programs, and workshops to prepare students for top recruiters and industry opportunities.</p>
+                        <h6>Follow Aspira:</h6>
+                        <ul class="list-unstyled ps-0 mb-0 social-link">
+                            <li class="d-inline-block"><a class="text-decoration-none" href="https://www.facebook.com/" target="_blank"><i class="flaticon-facebook-app-symbol"></i></a></li>
+                            <li class="d-inline-block"><a class="text-decoration-none" href="https://www.pinterest.com/" target="_blank"><i class="flaticon-pinterest"></i></a></li>
+                            <li class="d-inline-block"><a class="text-decoration-none" href="https://www.instagram.com/" target="_blank"><i class="flaticon-instagram"></i></a></li>
+                            <li class="d-inline-block"><a class="text-decoration-none" href="https://twitter.com/" target="_blank"><i class="flaticon-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget quick">
+                        <h3>Quick Links</h3>
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li><a class="text-decoration-none" href="student-internships.html">Internships</a></li>
+                            <li><a class="text-decoration-none" href="student-jobs.html">Job Opportunities</a></li>
+                            <li><a class="text-decoration-none" href="student-events-workshops.html">Workshops & Events</a></li>
+                            <li><a class="text-decoration-none" href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget contact">
+                        <h3>Contact Placement Cell</h3>
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li><a class="text-decoration-none" href="tel:+919999999999">+91 99999 99999 <i class="ri-phone-line"></i></a></li>
+                            <li><a class="text-decoration-none" href="mailto:aspira@necn.ac.in">aspira@necn.ac.in <i class="ri-message-line"></i></a></li>
+                            <li><i class="flaticon-placeholder"></i><p>Narayana Engineering College, Nellore<br>NH-16, Muthukur Road, Nellore, Andhra Pradesh 524003</p></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-2 col-sm-12 d-flex align-items-center">
+                    <div class="copyright-logo">
+                        <img src="assets/img/favicon.png" alt="aspira-logo" width="70" height="50">
+                        <p class="mb-0">Aspira</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-sm-6">
+                    <div class="copyright-title text-lg-end text-sm-start">
+                        <p class="mb-0">© <strong>Aspira</strong> Placement & Career Cell. All Rights Reserved.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-sm-6">
+                    <div class="copyright-list text-lg-end text-sm-start">
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li class="d-inline-block me-3"><a class="text-decoration-none" href="faculty.html">P&T Team</a></li>
+                            <li class="d-inline-block me-3"><a class="text-decoration-none" href="placement-overview.html">Placements Info</a></li>
+                            <li class="d-inline-block"><a class="text-decoration-none" href="career-guidance.html">About Aspira</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <button type="button" id="back-to-top">
+        <i class="ri-arrow-up-double-fill"></i>
+    </button>
+
+    <script>
+document.addEventListener("DOMContentLoaded", async function () {
+    const studentId = localStorage.getItem("student_id");
+    if (!studentId) {
+        alert("Session expired. Please log in again.");
+        window.location.href = "student-login.html";
+        return;
+    }
+
+    const jobContainer = document.querySelector(".register-area .row");
+    jobContainer.innerHTML = ""; // Clear existing sample jobs
+
+    try {
+        const response = await fetch(`http://localhost:3000/api/student/${studentId}/opportunities`);
+        const data = await response.json();
+
+        if (!data.success || !data.opportunities.length) {
+            jobContainer.innerHTML = `
+                <div class="col-lg-12 text-center">
+                    <h5 class="text-muted mt-4">No placement opportunities available right now.</h5>
+                </div>`;
+            return;
+        }
+
+        data.opportunities.forEach(job => {
+            const card = document.createElement("div");
+            card.classList.add("col-lg-12");
+            card.innerHTML = `
+                <div class="job-listing">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h4>${job.title}</h4>
+                            <p class="mb-2"><strong>Company:</strong> ${job.company_name}</p>
+                            <div class="job-meta">
+                                <span><i class="ri-briefcase-line"></i> ${job.type}</span>
+                                <span><i class="ri-money-rupee-circle-line"></i> ${job.salary_package ? job.salary_package + " LPA" : "N/A"}</span>
+                                <span><i class="ri-calendar-line"></i> Apply By: ${job.due_date ? new Date(job.due_date).toLocaleDateString() : "N/A"}</span>
+                            </div>
+                            <p class="mb-0">${job.description || "No description available."}</p>
+                        </div>
+                        <span class="badge bg-primary text-capitalize">${job.type}</span>
+                    </div>
+                    <div class="mt-3 text-end">
+                        <button class="default-btn border-0 btn-sm apply-btn" data-id="${job.id}">
+                            Apply Now <i class="flaticon-right-arrow"></i>
+                        </button>
+                    </div>
+                </div>`;
+            jobContainer.appendChild(card);
+        });
+
+        // Handle Apply Button
+        document.querySelectorAll(".apply-btn").forEach(btn => {
+            btn.addEventListener("click", async (e) => {
+                const opportunityId = e.target.dataset.id;
+                if (!opportunityId) return;
+
+                const confirmApply = confirm("Do you want to apply for this opportunity?");
+                if (!confirmApply) return;
+
+                try {
+                    const applyRes = await fetch(`http://localhost:3000/api/student/${studentId}/apply`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ opportunity_id: opportunityId })
+                    });
+
+                    const applyData = await applyRes.json();
+                    if (applyData.success) {
+                        alert("✅ Application submitted successfully!");
+                        e.target.disabled = true;
+                        e.target.innerText = "Applied";
+                    } else {
+                        alert("⚠️ " + applyData.message);
+                    }
+                } catch (error) {
+                    console.error("Error applying:", error);
+                    alert("Network error. Please try again.");
+                }
+            });
+        });
+    } catch (err) {
+        console.error("Error fetching opportunities:", err);
+        jobContainer.innerHTML = `
+            <div class="col-lg-12 text-center">
+                <h5 class="text-danger mt-4">Error loading opportunities. Please try again later.</h5>
+            </div>`;
+    }
+});
+</script>
+
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/fslightbox.js"></script>
+    <script src="assets/js/scrollCue.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+</body>
+</html>

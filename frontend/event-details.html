@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspira – CodeSpark Hackathon Details</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/scrollCue.css">
+    <link rel="stylesheet" href="assets/css/remixicon.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        /* Desktop dropdown submenu hover effect */
+        .navbar .dropdown-menu .dropdown-item {
+            transition: color 0.3s ease;
+        }
+        .navbar .dropdown-menu .dropdown-item:hover {
+            color: red !important;
+        }
+
+        /* Prevent horizontal overflow */
+        body, html {
+            overflow-x: hidden;
+        }
+        #navbar img {
+            max-width: 100%;
+            height: auto;
+        }
+        .top-header-area h3 {
+            word-wrap: break-word;
+        }
+
+        /* Active link styling */
+        .navbar-nav .nav-link.active,
+        .responsive-menu a.active {
+            color: red !important;
+            font-weight: bold;
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link href="assets/img/favicon.png" type="image/x-icon" rel="icon">
+</head>
+<body>
+
+    <div class="top-header-area style-2" style="padding: 12px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <h3 class="mb-0" style="color: #fff; font-weight: 700; letter-spacing: 1px; line-height: 1.4; font-size: 26px;">
+                        <span style="font-family: 'Great Vibes', cursive; font-size: 36px; font-weight: 600; margin-right: 6px;">
+                            Aspira
+                        </span>
+                        – Central Placement and Information Center
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-2" id="navbar">
+        <div class="container">
+            <img src="assets/img/logo_necn.jpg" alt="Logo" height="70" width="160">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="index-2.html" class="nav-link">Home</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Placements
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="announcements.html">Announcements</a></li>
+                            <li><a class="dropdown-item" href="companies.html">Companies</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Events
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="events.html">All Events</a></li>
+                            <li><a class="dropdown-item active" href="event-details.html">Event Details</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Login
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="login-student.html">Student Login</a></li>
+                            <li><a class="dropdown-item" href="login-faculty.html">Faculty Login</a></li>
+                            <li><a class="dropdown-item" href="login-admin.html">Admin Login</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="responsive-navbar offcanvas offcanvas-end border-0" data-bs-backdrop="static" tabindex="-1" id="navbarOffcanvas">
+        <div class="offcanvas-header">
+            <a href="index-2.html" class="logo d-inline-block">
+                <img src="assets/img/logo_necn.jpg" alt="logo" style="height:60px; max-width:100%;">
+            </a>
+            <button type="button" class="close-btn bg-transparent position-relative lh-1 p-0 border-0" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class="ri-close-fill"></i>
+            </button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="responsive-menu">
+                <li class="responsive-menu-list"><a href="index-2.html">Home</a></li>
+
+                <li class="responsive-menu-list">
+                    <a href="javascript:void(0);">Placements</a>
+                    <ul class="responsive-menu-items">
+                        <li><a href="announcements.html" class="nav-link">Announcements</a></li>
+                        <li><a href="companies.html" class="nav-link">Companies</a></li>
+                    </ul>
+                </li>
+
+                <li class="responsive-menu-list active">
+                <a href="javascript:void(0);" class="active">Events</a>
+                <ul class="responsive-menu-items">
+                    <li><a href="events.html" class="nav-link">All Events</a></li>
+                    <li><a href="event-details.html" class="nav-link active">Event Details</a></li>
+                </ul>
+            </li>
+
+                <li class="responsive-menu-list"><a href="contact.html">Contact Us</a></li>
+
+                <li class="responsive-menu-list">
+                    <a href="javascript:void(0);">Login</a>
+                    <ul class="responsive-menu-items">
+                        <li><a href="login-student.html" class="nav-link">Student Login</a></li>
+                        <li><a href="login-faculty.html" class="nav-link">Faculty Login</a></li>
+                        <li><a href="login-admin.html" class="nav-link">Admin Login</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="others-option d-md-flex align-items-center mt-3">
+                <div class="option-item">
+                    <a class="text-decoration-none default-btn" href="contact.html">
+                        Contact Us <i class="flaticon-right-arrow"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pages-banner-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="pages-title">
+                        <h2>Event Details</h2>
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li class="d-inline-block">
+                                <a class="text-decoration-none" href="index-2.html">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="d-inline-block">
+                                Event Details
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="pages-image">
+                        <img src="assets/img/pages/pages-9.jpg" alt="pages-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shape-7">
+            <img src="assets/img/shape/shape-7.png" alt="shape">
+        </div>
+    </div>
+    <div class="events-details-area pt-100 pb-75">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="events-details-left-sidebar">
+                        <div class="image">
+                            <img src="assets/img/pages/pages-36.jpg" alt="Hackathon Image">
+                        </div>
+                        <h1>CodeSpark Hackathon: Build the Future 🚀</h1>
+                        <p>The **CodeSpark Hackathon** is a 24-hour coding challenge designed to push your problem-solving skills and creativity. Teams will tackle real-world industry problems in areas like sustainable technology, fintech, and automation. This is a prime opportunity to demonstrate technical prowess to leading recruiters.</p>
+                        <p>Participants will work in teams of up to 4, with access to mentorship from senior faculty and industry experts. The winning team receives a cash prize and guaranteed fast-track consideration from our top recruiting partners.</p>
+                        <div class="events-card">
+                            <h3>Event Tracks & Core Objectives</h3>
+                            <p>This year’s event features three primary tracks:</p>
+                            <ul class="list-unstyled ps-4 mb-0" style="list-style: disc; margin-left: 15px;">
+                                <li>**Sustainable Tech:** Develop solutions for energy management or waste reduction.</li>
+                                <li>**Fintech Innovations:** Build prototypes for secure and efficient digital payments.</li>
+                                <li>**AI for Automation:** Create smart bots or automated processes for enterprises.</li>
+                            </ul>
+                        </div>
+                        <div class="events-card">
+                            <h3>Eligibility and Requirements</h3>
+                            <p>Participation is restricted to students who meet the following criteria:</p>
+                            <ul class="list-unstyled ps-4 mb-0" style="list-style: disc; margin-left: 15px;">
+                                <li>**Eligibility Branches:** B.Tech/M.Tech (Computer Science Engineering, Information Technology, Electronics and Communication Engineering).</li>
+                                <li>**College Years:** 3rd and 4th Year Students only.</li>
+                                <li>Basic knowledge of version control (Git) and cloud platforms (AWS/Azure/GCP) is mandatory.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="register text-center p-4 rounded" style="background-color: #f7f7f7; border: 1px solid #ddd;">
+                            <h2 class="mb-3" style="color: #032447;">Ready to Register?</h2>
+                            <p class="mb-4">To register for any Aspira event, you must first log in to your student portal. This ensures eligibility verification and personalized event management.</p>
+                            <a class="default-btn border-0 text-decoration-none" href="login-student.html">
+                                Student Login to Register
+                                <i class="flaticon-right-arrow"></i>
+                            </a>
+                        </div>
+                        </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="events-details-right-sidebar">
+                        <div class="single-program-widget department">
+                            <h3>Event Information</h3>
+                            <ul class="list-unstyled ps-0 mb-0 list">
+                                <li>
+                                    <i class="ri-map-pin-line"></i>
+                                    **Location:** NECN Incubation Center
+                                </li>
+                                <li>
+                                    <i class="ri-calendar-2-line"></i>
+                                    **Time:** 09:00 AM - 05:00 PM (24-Hour Event)
+                                </li>
+                                <li>
+                                    <i class="ri-calendar-line"></i>
+                                    **Date:** 24 January, 2024
+                                </li>
+                                <li>
+                                    <i class="ri-money-dollar-circle-line"></i>
+                                    **Registration Fee:** ₹500 per team
+                                </li>
+                                <li>
+                                    <i class="ri-user-line"></i>
+                                    **Contact:** Mr. A. R. Kumar (Placement Coordinator)
+                                </li>
+                                <li>
+                                    <a class="text-decoration-none d-flex align-items-center" href="tel:+919999999999">
+                                        <i class="flaticon-call"></i>
+                                        +91 99999 99999
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="text-decoration-none d-flex align-items-center" href="mailto:aspira@necn.ac.in">
+                                        <i class="ri-message-line"></i>
+                                        aspira@necn.ac.in
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="share">
+                                <ul class="list-unstyled ps-0 mb-0 d-flex align-items-center">
+                                    <li class="d-inline-block">Share:</li>
+                                    <li class="d-inline-block">
+                                        <a class="text-decoration-none" href="https://www.facebook.com/" target="_blank">
+                                            <i class="flaticon-facebook-app-symbol"></i>
+                                        </a>
+                                    </li>
+                                    <li class="d-inline-block">
+                                        <a class="text-decoration-none" href="https://twitter.com/" target="_blank">
+                                            <i class="flaticon-twitter"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="single-program-widget events">
+                            <h3>Related Events</h3>
+                            <div class="events-card d-flex align-items-center">
+                                <div class="image">
+                                    <a class="text-decoration-none" href="#"><img src="assets/img/pages/pages-37.jpg" alt="Related Event 1"></a>
+                                </div>
+                                <div class="content">
+                                    <h6>
+                                        <a class="text-decoration-none" href="#">Future of AI and Machine Learning in Tech Jobs</a>
+                                    </h6>
+                                    <ul class="list-unstyled ps-0 mb-0">
+                                        <li>
+                                            <i class="ri-calendar-line"></i>
+                                            08 April, 2024
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="events-card d-flex align-items-center">
+                                <div class="image">
+                                    <a class="text-decoration-none" href="#"><img src="assets/img/pages/pages-38.jpg" alt="Related Event 2"></a>
+                                </div>
+                                <div class="content">
+                                    <h6>
+                                        <a class="text-decoration-none" href="#">Mock Interview & Resume Building Drive</a>
+                                    </h6>
+                                    <ul class="list-unstyled ps-0 mb-0">
+                                        <li>
+                                            <i class="ri-calendar-line"></i>
+                                            10 December, 2024
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="events-card d-flex align-items-center">
+                                <div class="image">
+                                    <a class="text-decoration-none" href="#"><img src="assets/img/pages/pages-39.jpg" alt="Related Event 3"></a>
+                                </div>
+                                <div class="content">
+                                    <h6>
+                                        <a class="text-decoration-none" href="#">Industry Trends & Future Career Paths Seminar</a>
+                                    </h6>
+                                    <ul class="list-unstyled ps-0 mb-0">
+                                        <li>
+                                            <i class="ri-calendar-line"></i>
+                                            26 January, 2024
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-area pt-100 pb-75">
+        <div class="container">
+            <div class="row align-items-start">
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget about">
+                        <h3>About Aspira</h3>
+                        <p>Aspira is the Placement & Career Cell of Narayana Engineering College, Nellore. We provide centralized placement information, career guidance, skill development programs, and workshops to prepare students for top recruiters and industry opportunities.</p>
+                        <h6>Follow Aspira:</h6>
+                        <ul class="list-unstyled ps-0 mb-0 social-link">
+                            <li class="d-inline-block">
+                                <a class="text-decoration-none" href="https://www.facebook.com/" target="_blank">
+                                    <i class="flaticon-facebook-app-symbol"></i>
+                                </a>
+                            </li>
+                            <li class="d-inline-block">
+                                <a class="text-decoration-none" href="https://www.pinterest.com/" target="_blank">
+                                    <i class="flaticon-pinterest"></i>
+                                </a>
+                            </li>
+                            <li class="d-inline-block">
+                                <a class="text-decoration-none" href="https://www.instagram.com/" target="_blank">
+                                    <i class="flaticon-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="d-inline-block">
+                                <a class="text-decoration-none" href="https://twitter.com/" target="_blank">
+                                    <i class="flaticon-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget quick">
+                        <h3>Quick Links</h3>
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li><a class="text-decoration-none" href="placement-overview.html">Placement Info</a></li>
+                            <li><a class="text-decoration-none" href="career-guidance.html">Career Guidance</a></li>
+                            <li><a class="text-decoration-none" href="events.html">Workshops & Events</a></li>
+                            <li><a class="text-decoration-none" href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget contact">
+                        <h3>Contact Placement Cell</h3>
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li>
+                                <a class="text-decoration-none" href="tel:+919999999999">
+                                    +91 99999 99999
+                                    <i class="ri-phone-line"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-decoration-none" href="mailto:aspira@necn.ac.in">
+                                    aspira@necn.ac.in
+                                    <i class="ri-message-line"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <i class="flaticon-placeholder"></i>
+                                <p>Narayana Engineering College, Nellore<br>NH-16, Muthukur Road, Nellore, Andhra Pradesh 524003</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <div class="col-lg-2 col-sm-12 d-flex align-items-center">
+                    <div class="copyright-logo">
+                        <img src="assets/img/favicon.png" alt="aspira-logo" width="70" height="50">
+                        <p class="mb-0">Aspira</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-sm-6">
+                    <div class="copyright-title text-lg-end text-sm-start">
+                        <p class="mb-0">© **Aspira** Placement & Career Cell. All Rights Reserved.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-sm-6">
+                    <div class="copyright-list text-lg-end text-sm-start">
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li class="d-inline-block me-3">
+                                <a class="text-decoration-none" href="faculty.html">P&T Team</a>
+                            </li>
+                            <li class="d-inline-block me-3">
+                                <a class="text-decoration-none" href="placement-overview.html">Placements Info</a>
+                            </li>
+                            <li class="d-inline-block">
+                                <a class="text-decoration-none" href="career-guidance.html">About Aspira</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" id="back-to-top"><i class="ri-arrow-up-double-fill"></i></button>
+
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/fslightbox.js"></script>
+    <script src="assets/js/scrollCue.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+        // Logic to manually set the Events dropdown and Event Details link as active
+        const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+        navLinks.forEach(link => link.classList.remove("active"));
+        
+        // Use a more robust selector or text check if needed, but for this specific template, 
+        // the dropdown-toggle associated with "Events" should be active.
+        const eventDropdownToggle = document.querySelector('.navbar-nav .dropdown-toggle:contains("Events")');
+        if (eventDropdownToggle) {
+            eventDropdownToggle.classList.add("active");
+        }
+        const eventDetailsLink = document.querySelector('.dropdown-menu a[href="event-details.html"]');
+        if (eventDetailsLink) {
+            eventDetailsLink.classList.add("active");
+        }
+
+
+        // Mobile menu logic (adjusting based on desktop logic)
+        const responsiveLinks = document.querySelectorAll(".responsive-menu a");
+        responsiveLinks.forEach(link => {
+            link.classList.remove("active");
+            link.closest(".responsive-menu-list")?.classList.remove("active");
+        });
+        
+        const responsiveEventList = document.querySelector('.responsive-menu-list:contains("Events")');
+        if (responsiveEventList) {
+            responsiveEventList.classList.add("active");
+            const responsiveEventDetailsLink = responsiveEventList.querySelector('.nav-link[href="event-details.html"]');
+            if (responsiveEventDetailsLink) {
+                responsiveEventDetailsLink.classList.add("active");
+            }
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspira – Placement Resources</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/scrollCue.css">
+    <link rel="stylesheet" href="assets/css/remixicon.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href="assets/img/favicon.png" type="image/x-icon" rel="icon">
+
+    <style>
+        .admin-wrapper {
+            padding: 60px 0;
+            background-color: #f5f8fa;
+        }
+
+        /* Module Card Style synced with Admin Dashboard */
+        .resource-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+            height: 100%;
+            border-bottom: 3px solid transparent;
+            position: relative;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 3px solid #0d47a1;
+        }
+
+        .resource-card .icon-box {
+            font-size: 40px;
+            color: #0d47a1;
+            margin-bottom: 15px;
+        }
+
+        .resource-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .resource-card p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .badge-category {
+            font-size: 10px;
+            padding: 4px 10px;
+            border-radius: 15px;
+            text-transform: uppercase;
+            font-weight: 600;
+            background-color: #e3f2fd;
+            color: #0d47a1;
+        }
+
+        .navbar-nav .nav-link.active-faculty {
+            color: red !important;
+            font-weight: bold;
+        }
+
+        /* Upload Button Style from Portal index.html */
+        .upload-btn-area {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-header-area style-2" style="padding: 12px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <h3 class="mb-0" style="color: #fff; font-weight: 700; letter-spacing: 1px; line-height: 1.4; font-size: 26px;">
+                        <span style="font-family: 'Great Vibes', cursive; font-size: 36px; font-weight: 600; margin-right: 6px;">
+                            Aspira
+                        </span>
+                        – Central Placement and Information Center
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-2" id="navbar">
+        <div class="container">
+            <img src="assets/img/logo_necn.jpg" alt="Logo" height="70" width="160">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="faculty-dashboard.html" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="faculty-events.html" class="nav-link">Add Events</a>
+                </li>
+                <li class="nav-item">
+                    <a href="faculty-applications.html" class="nav-link active">Applications</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="faculty-materials.html" class="nav-link">Materials</a>
+                </li>
+                <li class="nav-item">
+                    <a href="logout.html" class="nav-link text-danger">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <div class="admin-wrapper">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2 style="font-size: 32px; font-weight: 800;">Resource Management</h2>
+                <p>Upload and organize study materials, interview guides, and technical resources for students.</p>
+            </div>
+
+            <div class="upload-btn-area d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="mb-0">Placement Preparation Library</h5>
+                    <small class="text-muted">Currently hosting <span id="resourceCount">0</span> materials</small>
+                </div>
+                <button class="default-btn border-0" style="background:#0d47a1; color:white;" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                    Add New Resource <i class="ri-file-add-line"></i>
+                </button>
+            </div>
+
+            <div class="row g-4" id="resourceGrid">
+                </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="uploadModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-4">
+                <div class="modal-header border-0 p-0 mb-3">
+                    <h4 class="modal-title fw-bold">Upload New Material</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Title</label>
+                        <input type="text" id="resTitle" class="form-control" placeholder="e.g. Java Interview MCQs">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Category</label>
+                        <select id="resCategory" class="form-select">
+                            <option value="Aptitude">Aptitude</option>
+                            <option value="Technical">Technical</option>
+                            <option value="Soft Skills">Soft Skills</option>
+                            <option value="Company Specific">Company Specific</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Select File (PDF/Docs)</label>
+                        <input type="file" id="resFile" class="form-control">
+                    </div>
+                    <button class="default-btn border-0 w-100" style="background:#0d47a1; color:white;" onclick="handleUpload()">
+                        Confirm Upload <i class="ri-upload-cloud-2-line"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-area pt-100 pb-75">
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget about">
+                        <h3>About Aspira</h3>
+                        <p>Narayana Engineering College's central hub for placement and career excellence. We empower students through mentors and high-quality preparation resources.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center">
+                    <img src="assets/img/favicon.png" alt="logo" width="80">
+                    <p class="mt-3">© 2026 Aspira Placement Cell</p>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-end">
+                    <div class="single-footer-widget contact">
+                        <h3>Support Contact</h3>
+                        <p>aspira@necn.ac.in</p>
+                        <p>+91 99999 99999</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let resources = [];
+
+        // 1. Fetch Resources from Database
+        async function loadResources() {
+            try {
+                const res = await fetch('/api/faculty/resources'); 
+                const data = await res.json();
+                resources = data.materials || [];
+                renderResources(resources);
+            } catch (error) {
+                console.warn("Backend not detected, using sample data for UI verification");
+                resources = [
+                    { id: 1, title: "TCS NQT Coding Questions", category: "Technical", date: "2025-09-01", type: "PDF" },
+                    { id: 2, title: "General Aptitude Workbook", category: "Aptitude", date: "2025-09-05", type: "DOCX" },
+                    { id: 3, title: "HR Interview Prep Guide", category: "Soft Skills", date: "2025-09-10", type: "PDF" }
+                ];
+                renderResources(resources);
+            }
+        }
+
+        // 2. Render UI
+        function renderResources(data) {
+            const grid = document.getElementById('resourceGrid');
+            document.getElementById('resourceCount').innerText = data.length;
+            
+            if(data.length === 0) {
+                grid.innerHTML = `<div class='col-12 text-center py-5'>No resources uploaded yet.</div>`;
+                return;
+            }
+
+            grid.innerHTML = data.map(res => `
+                <div class="col-lg-3 col-md-6">
+                    <div class="resource-card">
+                        <div class="icon-box">
+                            <i class="${res.type === 'PDF' ? 'ri-file-pdf-line' : 'ri-file-word-line'}"></i>
+                        </div>
+                        <span class="badge-category">${res.category}</span>
+                        <h4>${res.title}</h4>
+                        <p>Uploaded: ${new Date(res.date).toLocaleDateString()}</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <button class="btn btn-sm btn-outline-primary" onclick="downloadFile(${res.id})">
+                                <i class="ri-download-line"></i> Download
+                            </button>
+                            <button class="btn btn-sm text-danger" onclick="deleteResource(${res.id})">
+                                <i class="ri-delete-bin-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 3. Handle File Upload
+        async function handleUpload() {
+            const title = document.getElementById('resTitle').value;
+            const category = document.getElementById('resCategory').value;
+            const file = document.getElementById('resFile').files[0];
+
+            if(!title || !file) {
+                alert("Please provide a title and select a file.");
+                return;
+            }
+
+            // Logic to send FormData to backend
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('category', category);
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('/api/faculty/upload-resource', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+                if(result.success) {
+                    alert("Resource uploaded successfully!");
+                    loadResources(); // Refresh grid
+                }
+            } catch (err) {
+                alert("Error during upload. Please check your backend.");
+            }
+        }
+
+        loadResources();
+    </script>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+</html>

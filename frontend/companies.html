@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspira – Recruiting Companies & Highlights</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/scrollCue.css">
+    <link rel="stylesheet" href="assets/css/remixicon.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Custom Styles -->
+    <style>
+        /* Desktop dropdown submenu hover effect */
+        .navbar .dropdown-menu .dropdown-item {
+            transition: color 0.3s ease;
+        }
+        .navbar .dropdown-menu .dropdown-item:hover {
+            color: red !important;
+        }
+
+        /* Prevent horizontal overflow */
+        body, html {
+            overflow-x: hidden;
+        }
+        #navbar img {
+            max-width: 100%;
+            height: auto;
+        }
+        .top-header-area h3 {
+            word-wrap: break-word;
+        }
+
+        /* Active link styling */
+        .navbar-nav .nav-link.active,
+        .responsive-menu a.active {
+            color: red !important;
+            font-weight: bold;
+        }
+        
+        /* Ensure the parent dropdown toggle text turns red when active */
+        .navbar-nav .nav-item.dropdown .nav-link.active {
+            color: red !important;
+            font-weight: bold;
+        }
+
+        /* Styling for Company Cards */
+        .company-card {
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            background-color: #fcfcfc;
+            transition: transform 0.2s;
+        }
+        .company-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        .company-card h4 {
+            font-size: 20px;
+            color: #194380; /* Changed to Navy Blue */
+            margin-bottom: 5px;
+        }
+        .company-card .info-tag {
+            display: inline-block;
+            background-color: #d1e0f0; /* Adjusted background for contrast */
+            color: #194380; /* Changed tag text color to Navy Blue */
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 8px;
+            margin-top: 5px;
+        }
+        .company-card h4 i {
+            font-size: 22px;
+        }
+
+        .recruiter-history-section h2 {
+            border-bottom: 2px solid #194380; /* Changed to Navy Blue Border */
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+    </style>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link href="assets/img/favicon.png" type="image/x-icon" rel="icon">
+</head>
+<body>
+
+    <!-- Top Header Area -->
+    <div class="top-header-area style-2" style="padding: 12px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <h3 class="mb-0" style="color: #fff; font-weight: 700; letter-spacing: 1px; line-height: 1.4; font-size: 26px;">
+                        <span style="font-family: 'Great Vibes', cursive; font-size: 36px; font-weight: 600; margin-right: 6px;">
+                            Aspira
+                        </span>
+                        – Central Placement and Information Center
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Header Area -->
+
+    <!-- Start Navbar Area -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-2" id="navbar">
+        <div class="container">
+            <!-- Logo -->
+            <img src="assets/img/logo_necn.jpg" alt="Logo" height="70" width="160">
+
+            <!-- Toggler for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="index-2.html" class="nav-link">Home</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Placements
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="announcements.html">Announcements</a></li>
+                            <li><a class="dropdown-item active" href="companies.html">Companies</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Events
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="events.html">All Events</a></li>
+                            <li><a class="dropdown-item" href="event-details.html">Event Details</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Login
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="login-student.html">Student Login</a></li>
+                            <li><a class="dropdown-item" href="login-faculty.html">Faculty Login</a></li>
+                            <li><a class="dropdown-item" href="login-admin.html">Admin Login</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar Area -->
+
+    <!-- Start Responsive Navbar Area -->
+    <div class="responsive-navbar offcanvas offcanvas-end border-0" data-bs-backdrop="static" tabindex="-1" id="navbarOffcanvas">
+        <div class="offcanvas-header">
+            <a href="index-2.html" class="logo d-inline-block">
+                <img src="assets/img/logo_necn.jpg" alt="logo" style="height:60px; max-width:100%;">
+            </a>
+            <button type="button" class="close-btn bg-transparent position-relative lh-1 p-0 border-0" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class="ri-close-fill"></i>
+            </button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="responsive-menu">
+                <li class="responsive-menu-list"><a href="index-2.html">Home</a></li>
+
+                <li class="responsive-menu-list active">
+                    <a href="javascript:void(0);" class="active">Placements</a>
+                    <ul class="responsive-menu-items">
+                        <li><a href="announcements.html" class="nav-link">Announcements</a></li>
+                        <li><a href="companies.html" class="nav-link active">Companies</a></li>
+                    </ul>
+                </li>
+
+                <!-- Events -->
+            <li class="responsive-menu-list">
+                <a href="javascript:void(0);">Events</a>
+                <ul class="responsive-menu-items">
+                    <li><a href="events.html" class="nav-link">All Events</a></li>
+                    <li><a href="event-details.html" class="nav-link">Event Details</a></li>
+                </ul>
+            </li>
+
+                <li class="responsive-menu-list"><a href="contact.html">Contact Us</a></li>
+
+                <li class="responsive-menu-list">
+                    <a href="javascript:void(0);">Login</a>
+                    <ul class="responsive-menu-items">
+                        <li><a href="login-student.html">Student Login</a></li>
+                        <li><a href="login-faculty.html">Faculty Login</a></li>
+                        <li><a href="login-admin.html">Admin Login</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="others-option d-md-flex align-items-center mt-3">
+                <div class="option-item">
+                    <a class="text-decoration-none default-btn" href="contact.html">
+                        Contact Us <i class="flaticon-right-arrow"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Responsive Navbar Area -->
+
+    <!-- Start Pages Banner Area -->
+    <div class="pages-banner-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="pages-title">
+                        <h2>Recruiting Companies</h2>
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li class="d-inline-block">
+                                <a class="text-decoration-none" href="index-2.html">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="d-inline-block">
+                                Companies
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="pages-image">
+                        <img src="assets/img/pages/pages-9.jpg" alt="pages-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shape-7">
+            <img src="assets/img/shape/shape-7.png" alt="shape">
+        </div>
+    </div>
+    <!-- End Pages Banner Area -->
+    
+    <!-- Start Companies List Area -->
+    <div class="events-details-area pt-100 pb-75">
+        <div class="container">
+            <div class="row">
+                
+                <!-- NEW SECTION 1: ALL COMPANIES LIST -->
+                <div class="col-lg-12">
+                    <h2 class="mb-4 text-center" style="border-bottom: 2px solid #194380; padding-bottom: 10px; margin-bottom: 30px;">
+                        List of All Recent Recruiters (2024-2025)
+                    </h2>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="row">
+                        <!-- Company 1: TCS -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="company-card">
+                                <h4 class="d-flex align-items-center"><i class="ri-code-s-slash-line me-2 text-info"></i> Tata Consultancy Services (TCS)</h4>
+                                <p>Indian multinational IT service and consulting company. Mass recruiter across multiple technical profiles.</p>
+                                <div class="meta mt-2">
+                                    <span class="info-tag"><i class="ri-briefcase-line"></i> IT Services</span>
+                                    <span class="info-tag"><i class="ri-user-star-line"></i> Mass Hiring</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Company 2: Infosys -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="company-card">
+                                <h4 class="d-flex align-items-center"><i class="ri-global-line me-2 text-info"></i> Infosys</h4>
+                                <p>Global leader in next-generation digital services and consulting, hiring for System Engineer and Digital Specialist roles.</p>
+                                <div class="meta mt-2">
+                                    <span class="info-tag"><i class="ri-briefcase-line"></i> Global Consulting</span>
+                                    <span class="info-tag"><i class="ri-compasses-2-line"></i> Digital Focus</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Company 3: DataSynth Analytics -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="company-card">
+                                <h4 class="d-flex align-items-center"><i class="ri-database-2-line me-2 text-info"></i> DataSynth Analytics</h4>
+                                <p>Specialist firm in AI/ML and Big Data solutions, known for high package offers (up to ₹29 LPA).</p>
+                                <div class="meta mt-2">
+                                    <span class="info-tag"><i class="ri-briefcase-line"></i> Data Science/AI</span>
+                                    <span class="info-tag"><i class="ri-money-dollar-circle-line"></i> High Package</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Company 4: L&T Construction -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="company-card">
+                                <h4 class="d-flex align-items-center"><i class="ri-building-4-line me-2 text-info"></i> Larsen & Toubro (L&T) Construction</h4>
+                                <p>Major infrastructure and technology conglomerate, recruiting core branches (Civil, Mech, Elec).</p>
+                                <div class="meta mt-2">
+                                    <span class="info-tag"><i class="ri-briefcase-line"></i> Core Sector</span>
+                                    <span class="info-tag"><i class="ri-hard-hat-line"></i> Construction/Infra</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Company 5: HCLTech -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="company-card">
+                                <h4 class="d-flex align-items-center"><i class="ri-cloud-line me-2 text-info"></i> HCLTech</h4>
+                                <p>Global tech company focusing on digital, engineering, and cloud services.</p>
+                                <div class="meta mt-2">
+                                    <span class="info-tag"><i class="ri-briefcase-line"></i> IT & Consulting</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Company 6: Wipro -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="company-card">
+                                <h4 class="d-flex align-items-center"><i class="ri-briefcase-3-line me-2 text-info"></i> Wipro</h4>
+                                <p>Leading IT, consulting, and business process services company.</p>
+                                <div class="meta mt-2">
+                                    <span class="info-tag"><i class="ri-briefcase-line"></i> IT Services</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Company 7: Cognizant (CTS) -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="company-card">
+                                <h4 class="d-flex align-items-center"><i class="ri-group-line me-2 text-info"></i> Cognizant (CTS)</h4>
+                                <p>Multinational information technology services and consulting company.</p>
+                                <div class="meta mt-2">
+                                    <span class="info-tag"><i class="ri-briefcase-line"></i> IT & Consulting</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Company 8: Siemens India -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="company-card">
+                                <h4 class="d-flex align-items-center"><i class="ri-flashlight-line me-2 text-info"></i> Siemens India</h4>
+                                <p>Focuses on electrification, automation, and digitalization (Core & Tech roles).</p>
+                                <div class="meta mt-2">
+                                    <span class="info-tag"><i class="ri-briefcase-line"></i> Core & Digital</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Company 9: Capgemini -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="company-card">
+                                <h4 class="d-flex align-items-center"><i class="ri-team-line me-2 text-info"></i> Capgemini</h4>
+                                <p>A French multinational IT services and consulting company.</p>
+                                <div class="meta mt-2">
+                                    <span class="info-tag"><i class="ri-briefcase-line"></i> IT Consulting</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Company 10: Maersk -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="company-card">
+                                <h4 class="d-flex align-items-center"><i class="ri-ship-line me-2 text-info"></i> Maersk</h4>
+                                <p>Global integrated container logistics company (IT/Supply Chain roles).</p>
+                                <div class="meta mt-2">
+                                    <span class="info-tag"><i class="ri-briefcase-line"></i> Logistics Tech</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Company 11: Tech Mahindra -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="company-card">
+                                <h4 class="d-flex align-items-center"><i class="ri-building-line me-2 text-info"></i> Tech Mahindra</h4>
+                                <p>Indian multinational technology services and consulting company.</p>
+                                <div class="meta mt-2">
+                                    <span class="info-tag"><i class="ri-briefcase-line"></i> Technology</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Company 12: Eurofins -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="company-card">
+                                <h4 class="d-flex align-items-center"><i class="ri-flask-line me-2 text-info"></i> Eurofins Scientific</h4>
+                                <p>Testing and laboratory services (Recruits Biotech/Chemical Engineering).</p>
+                                <div class="meta mt-2">
+                                    <span class="info-tag"><i class="ri-briefcase-line"></i> R&D/Scientific</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Placeholder for more... -->
+                        <div class="col-lg-12 text-center mt-3">
+                            <p class="text-muted">...and over 100+ more companies visited the campus this year.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination Block (Copied from events.html) -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <i class="ri-arrow-right-s-line two"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- End Pagination Block -->
+
+            
+            <!-- NEW SECTION 2: TOP RECRUITING PARTNERS (Detailed history moved to bottom) -->
+             <div class="row mt-5">
+                <div class="col-lg-12 recruiter-history-section">
+                    <h2 class="mb-4 text-center">Top Recruiter Spotlight & Historical Data</h2>
+                    
+                    <div class="row">
+                        <!-- Top Recruiter 1: TCS -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="company-card">
+                                <h4>Tata Consultancy Services (TCS)</h4>
+                                <div class="meta mb-2">
+                                    <span class="info-tag">IT Services</span>
+                                    <span class="info-tag">Mass Recruiter</span>
+                                </div>
+                                <p>TCS is one of India's largest IT services companies and a cornerstone recruiter at NECN. Their history with the college spans over a decade, hiring students primarily for software development, infrastructure management, and business process services. TCS offers roles to students across CSE, IT, ECE, and even core engineering branches for technical profiles.</p>
+                                <p><strong>Total Hires (Last 3 Yrs):</strong> 180+ students. **Recruits for:** CSE, IT, ECE, MECH, EEE, CIVIL.</p>
+                            </div>
+                        </div>
+
+                        <!-- Top Recruiter 2: Infosys -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="company-card">
+                                <h4>Infosys</h4>
+                                <div class="meta mb-2">
+                                    <span class="info-tag">Global Consulting</span>
+                                    <span class="info-tag">Digital Innovation</span>
+                                </div>
+                                <p>A global leader in next-generation digital services and consulting. Infosys targets students with strong coding skills and analytical abilities. They recruit for roles including System Engineer and Digital Specialist, frequently visiting our campus multiple times per placement cycle.</p>
+                                <p><strong>Total Hires (Last 3 Yrs):</strong> 150+ students. **Recruits for:** CSE, IT, ECE, MECH, EEE.</p>
+                            </div>
+                        </div>
+
+                        <!-- Top Recruiter 3: DataSynth (Fictional High-Roller) -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="company-card">
+                                <h4>DataSynth Analytics</h4>
+                                <div class="meta mb-2">
+                                    <span class="info-tag">Data Science</span>
+                                    <span class="info-tag">High Package Offer</span>
+                                </div>
+                                <p>DataSynth is a specialist firm in AI and Big Data solutions. They recruit a select group of highly skilled students from CSE and IT, known for offering some of the highest package offers (up to ₹29 LPA). Their focus is on core data science, machine learning, and cloud architecture roles.</p>
+                                <p><strong>Recent Hires (2024-25):</strong> 25 students. **Recruits for:** CSE, IT.</p>
+                            </div>
+                        </div>
+
+                        <!-- Top Recruiter 4: L&T Construction (Core Sector) -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="company-card">
+                                <h4>Larsen & Toubro (L&T) Construction</h4>
+                                <div class="meta mb-2">
+                                    <span class="info-tag">Core Infrastructure</span>
+                                    <span class="info-tag">Civil/Mechanical</span>
+                                </div>
+                                <p>L&T is an Indian multinational infrastructure and technology conglomerate. They are the key recruiter for our core engineering branches. They look for students in Civil, Mechanical, and Electrical Engineering for positions like Site Engineer, Project Management, and Design roles.</p>
+                                <p><strong>Recent Hires (2024-25):</strong> 20 students. **Recruits for:** CIVIL, MECH, EEE.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- End Companies List Area -->
+    
+    <!-- Start Footer Area -->
+    <div class="footer-area pt-100 pb-75">
+        <div class="container">
+            <div class="row align-items-start">
+
+                <!-- About Aspira -->
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget about">
+                        <h3>About Aspira</h3>
+                        <p>Aspira is the Placement & Career Cell of Narayana Engineering College, Nellore. We provide centralized placement information, career guidance, skill development programs, and workshops to prepare students for top recruiters and industry opportunities.</p>
+                        <h6>Follow Aspira:</h6>
+                        <ul class="list-unstyled ps-0 mb-0 social-link">
+                            <li class="d-inline-block">
+                                <a class="text-decoration-none" href="https://www.facebook.com/" target="_blank">
+                                    <i class="flaticon-facebook-app-symbol"></i>
+                                </a>
+                            </li>
+                            <li class="d-inline-block">
+                                <a class="text-decoration-none" href="https://www.pinterest.com/" target="_blank">
+                                    <i class="flaticon-pinterest"></i>
+                                </a>
+                            </li>
+                            <li class="d-inline-block">
+                                <a class="text-decoration-none" href="https://www.instagram.com/" target="_blank">
+                                    <i class="flaticon-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="d-inline-block">
+                                <a class="text-decoration-none" href="https://twitter.com/" target="_blank">
+                                    <i class="flaticon-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget quick">
+                        <h3>Quick Links</h3>
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li><a class="text-decoration-none" href="placement-overview.html">Placement Info</a></li>
+                            <li><a class="text-decoration-none" href="career-guidance.html">Career Guidance</a></li>
+                            <li><a class="text-decoration-none" href="events.html">Workshops & Events</a></li>
+                            <li><a class="text-decoration-none" href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Placement Cell -->
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-footer-widget contact">
+                        <h3>Contact Placement Cell</h3>
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li>
+                                <a class="text-decoration-none" href="tel:+919999999999">
+                                    +91 99999 99999
+                                    <i class="ri-phone-line"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-decoration-none" href="mailto:aspira@necn.ac.in">
+                                    aspira@necn.ac.in
+                                    <i class="ri-message-line"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <i class="flaticon-placeholder"></i>
+                                <p>Narayana Engineering College, Nellore<br>NH-16, Muthukur Road, Nellore, Andhra Pradesh 524003</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Area -->
+
+
+    <!-- Start Copyright Area -->
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <!-- College Logo -->
+                <div class="col-lg-2 col-sm-12 d-flex align-items-center">
+                    <div class="copyright-logo">
+                        <img src="assets/img/favicon.png" alt="aspira-logo" width="70" height="50">
+                        <p class="mb-0">Aspira</p>
+                    </div>
+                </div>
+
+                <!-- Copyright Text -->
+                <div class="col-lg-5 col-sm-6">
+                    <div class="copyright-title text-lg-end text-sm-start">
+                        <p class="mb-0">© **Aspira** Placement & Career Cell. All Rights Reserved.</p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-5 col-sm-6">
+                    <div class="copyright-list text-lg-end text-sm-start">
+                        <ul class="list-unstyled ps-0 mb-0">
+                            <li class="d-inline-block me-3">
+                                <a class="text-decoration-none" href="faculty.html">P&T Team</a>
+                            </li>
+                            <li class="d-inline-block me-3">
+                                <a class="text-decoration-none" href="placement-overview.html">Placements Info</a>
+                            </li>
+                            <li class="d-inline-block">
+                                <a class="text-decoration-none" href="career-guidance.html">About Aspira</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Copyright Area -->
+
+    <!-- Back to Top -->
+    <button type="button" id="back-to-top"><i class="ri-arrow-up-double-fill"></i></button>
+
+    <!-- Js Files -->
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/fslightbox.js"></script>
+    <script src="assets/js/scrollCue.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <!-- Highlight Active Menu Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Logic to manually set the Placements dropdown and Companies link as active
+        
+        // Remove active class from all links first
+        document.querySelectorAll(".navbar-nav .nav-link").forEach(link => link.classList.remove("active"));
+        document.querySelectorAll(".responsive-menu a").forEach(link => {
+            link.classList.remove("active");
+            link.closest(".responsive-menu-list")?.classList.remove("active");
+        });
+
+        // FIX: Use native JavaScript text check to find Placements dropdown (Desktop)
+        const placementDropdownToggle = Array.from(document.querySelectorAll('.navbar-nav .dropdown-toggle')).find(
+            link => link.textContent.trim().includes("Placements")
+        );
+        
+        if (placementDropdownToggle) {
+            placementDropdownToggle.classList.add("active");
+        }
+        
+        // Set active class for Companies link (Desktop)
+        const companiesLinkDesktop = document.querySelector('.dropdown-menu a[href="companies.html"]');
+        if (companiesLinkDesktop) {
+            companiesLinkDesktop.classList.add("active");
+        }
+
+
+        // Set active class for Placements dropdown (Mobile)
+        // FIX: Use native JavaScript text check to find Placements dropdown (Mobile)
+        const responsivePlacementLink = Array.from(document.querySelectorAll('.responsive-menu-list > a')).find(
+            link => link.textContent.trim().includes("Placements")
+        );
+
+        if (responsivePlacementLink) {
+            const responsivePlacementList = responsivePlacementLink.closest('.responsive-menu-list');
+            if (responsivePlacementList) {
+                responsivePlacementList.classList.add("active");
+                // Set active class for Companies link (Mobile)
+                const responsiveCompaniesLink = responsivePlacementList.querySelector('.nav-link[href="companies.html"]');
+                if (responsiveCompaniesLink) {
+                    responsiveCompaniesLink.classList.add("active");
+                }
+            }
+        }
+    });
+    </script>
+</body>
+</html>
